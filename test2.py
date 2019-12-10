@@ -132,18 +132,19 @@ frequency = []
 degree_distribution_list = degree_distribution.most_common(len(degree_distribution))
 top_frequency = degree_distribution_list[0][1]
 for index, item in enumerate(degree_distribution_list, start=1):
-    rf_table.append({'degree': item[0],
+    rf_table.append({'rank': index,
+                     'degree': item[0],
                      'frequency': item[1],
                      'relative frequency':'1/{}'.format(index)})
     
 freq_list = list(degree_distribution.values())
 #Zipf distribution parameter
-a = 3 
-count, bins, ignored = plt.hist(freq_list, len(freq_list), normed=True)
-plt.title("Zipf plot")
-x = np.arange(1., len(freq_list))
-plt.xlabel("Frequency Rank")
-y = x**(-a) / special.zetac(a)
-plt.ylabel("Absolute Frequency")
-plt.plot(x, y/max(y), linewidth=2, color='r')
-plt.show()
+#a = 3 
+#count, bins, ignored = plt.hist(freq_list, len(freq_list), normed=True)
+#plt.title("Zipf plot")
+#x = np.arange(1, len(freq_list))
+#plt.xlabel("Frequency Rank")
+#y = x**(-a) / special.zetac(a)
+#plt.ylabel("Absolute Frequency")
+#plt.plot(x, y/max(y), linewidth=2, color='r')
+#plt.show()
